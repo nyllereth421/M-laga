@@ -20,6 +20,35 @@
       background: linear-gradient(135deg, var(--gris-claro) 0%, var(--blanco) 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
+    /* Botón de regreso flotante */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--verde-bandera);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 150, 57, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 150, 57, 0.4);
+      color: white;
+    }
+
+    .back-to-top.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
     
     .header {
       background: linear-gradient(135deg, var(--verde-bandera) 0%, var(--azul-cielo) 100%);
@@ -37,6 +66,97 @@
     .header p {
       font-size: 1.3rem;
       opacity: 0.9;
+    }
+
+    .tourism-links {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 15px;
+      margin-top: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .tourism-links a {
+      color: var(--blanco);
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .tourism-links a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Sección de transporte */
+    .transport-section {
+      background: linear-gradient(135deg, var(--amarillo-bandera) 0%, #f0c14b 100%);
+      color: var(--verde-bandera);
+      padding: 2rem 0;
+      margin: 2rem 0;
+    }
+
+    .transport-section h3 {
+      color: var(--verde-bandera);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .transport-card {
+      background: var(--blanco);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
+    }
+
+    .transport-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--verde-bandera);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .transport-card i {
+      font-size: 3rem;
+      color: var(--verde-bandera);
+      margin-bottom: 1rem;
+    }
+
+    .transport-card h5 {
+      color: var(--verde-bandera);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .transport-card p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .transport-btn {
+      background: var(--verde-bandera);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .transport-btn:hover {
+      background: #007a2e;
+      color: white;
+      transform: translateY(-2px);
     }
     
     .search-section {
@@ -99,6 +219,12 @@
       height: 200px;
       object-fit: cover;
       transition: transform 0.3s ease;
+      background: linear-gradient(45deg, var(--verde-bandera), var(--azul-cielo));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
     }
     
     .card:hover .card-img-top {
@@ -131,9 +257,14 @@
       z-index: 2;
     }
     
-    .maps-btn {
-      background: var(--azul-cielo);
-      color: var(--blanco);
+    .btn-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .maps-btn, .tourism-btn, .info-btn {
       border: none;
       border-radius: 20px;
       padding: 0.5rem 1rem;
@@ -143,11 +274,41 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      flex: 1;
+      min-width: 120px;
+      justify-content: center;
     }
-    
+
+    .maps-btn {
+      background: var(--azul-cielo);
+      color: var(--blanco);
+    }
+
     .maps-btn:hover {
       background: #357abd;
       color: var(--blanco);
+      transform: translateY(-2px);
+    }
+
+    .tourism-btn {
+      background: var(--verde-bandera);
+      color: var(--blanco);
+    }
+
+    .tourism-btn:hover {
+      background: #007a2e;
+      color: var(--blanco);
+      transform: translateY(-2px);
+    }
+
+    .info-btn {
+      background: var(--amarillo-bandera);
+      color: var(--verde-bandera);
+    }
+
+    .info-btn:hover {
+      background: #e6c200;
+      color: var(--verde-bandera);
       transform: translateY(-2px);
     }
     
@@ -168,6 +329,48 @@
       font-size: 1.2rem;
       margin: 3rem 0;
     }
+
+    .quick-links {
+      background: var(--blanco);
+      padding: 2rem 0;
+      border-top: 3px solid var(--verde-bandera);
+    }
+
+    .quick-links h3 {
+      color: var(--verde-bandera);
+      margin-bottom: 1.5rem;
+    }
+
+    .quick-link-card {
+      background: var(--gris-claro);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .quick-link-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--verde-bandera);
+      box-shadow: 0 5px 15px var(--sombra);
+    }
+
+    .quick-link-card i {
+      font-size: 2.5rem;
+      color: var(--verde-bandera);
+      margin-bottom: 1rem;
+    }
+
+    .quick-link-card h5 {
+      color: var(--verde-bandera);
+      margin-bottom: 0.5rem;
+    }
+
+    .quick-link-card p {
+      color: #666;
+      font-size: 0.9rem;
+    }
     
     @media (max-width: 768px) {
       .header h1 {
@@ -182,18 +385,161 @@
         font-size: 1rem;
         padding: 0.7rem 1rem;
       }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .maps-btn, .tourism-btn, .info-btn {
+        min-width: 100%;
+      }
+
+      .tourism-links a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .back-to-top {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Botón de regreso al inicio -->
+  <button class="back-to-top hidden" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
   <!-- Header -->
-  <header class="header text-center">
+  <header class="header text-center" id="inicio">
     <div class="container">
       <h1><i class="fas fa-mountain"></i> Málaga, Santander</h1>
       <p>Tesoro del nororiente colombiano</p>
+      
+      <!-- Enlaces turísticos principales -->
+      <div class="tourism-links">
+        <a href="https://www.tripadvisor.co/Restaurants-g21374635-Malaga_Santander_Department.html" target="_blank">
+          <i class="fas fa-utensils"></i> Restaurante
+        </a>
+        <a href="https://www.facebook.com/groups/996280737407860/" target="_blank">
+          <i class="fas fa-store"></i> Centro Comercial
+        </a>
+        <a href="https://centroriente.unad.edu.co/malaga" target="_blank">
+          <i class="fas fa-graduation-cap"></i> universidad
+        </a>
+        <a href="https://hotelpanoramainn.com.co/" target="_blank">
+          <i class="fas fa-hotel"></i> Hotel
+        </a>
+        <a href="https://cris1619.github.io/Malaga/PAGINA_MALAGA/index.html" target="_blank">
+          <i class="fas fa-landmark"></i> historia
+        </a>
+      </div>
     </div>
   </header>
+
+  <!-- Sección de transporte -->
+  <section class="transport-section">
+    <div class="container">
+      <h3 class="text-center mb-4">
+        <i class="fas fa-bus"></i> Transporte y Conectividad
+      </h3>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="transport-card">
+            <i class="fas fa-bus"></i>
+            <h5>COTRANS</h5>
+            <p>Cooperativa de Transporte de Málaga. Rutas urbanas y intermunicipales</p>
+            <a href="https://cotrans.com.co/" target="_blank" class="transport-btn">
+              <i class="fas fa-map-marker-alt"></i> Ubicación
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="transport-card">
+            <i class="fas fa-taxi"></i>
+            <h5>Taxis Málaga</h5>
+            <p>Servicio de taxis local las 24 horas. Transporte seguro y confiable</p>
+            <a href="https://www.paginasamarillas.com.co/empresas/radio-taxis-malaga-sa/malaga-16826154?ad=50833910" target="_blank" class="transport-btn">
+              <i class="fas fa-phone"></i> Contactar
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="transport-card">
+            <i class="fas fa-plane"></i>
+            <h5>Aeropuerto  Jeronimo de Aguayo</h5>
+            <p>Conexión aérea más cercana</p>
+            <a href="https://metar-taf.com/es/airport/SKLA-malaga-regional-airport#:~:text=M%C3%A1laga%20Regional%20Airport%20es%20un,verano%20est%C3%A1%20actualmente%20en%20curso" target="_blank" class="transport-btn">
+              <i class="fas fa-route"></i> Ruta
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <div class="transport-card">
+            <i class="fas fa-car"></i>
+            <h5>Transporte Turístico</h5>
+            <p>Tours y excursiones organizadas hacia los principales destinos</p>
+            <a href="https://www.facebook.com/p/Alambre-TOURS-100083070255687/" target="_blank" class="transport-btn">
+              <i class="fas fa-info-circle"></i> Más Info
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enlaces rápidos -->
+  <section class="quick-links">
+    <div class="container">
+      <h3 class="text-center mb-4">Recursos Turísticos</h3>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-3">
+          <div class="quick-link-card">
+            <i class="fas fa-map"></i>
+            <h5>lugares Turísticos</h5>
+            <p>Encuentra rutas y ubicaciones</p>
+            <a href="https://anderson28062003.github.io/Malaga-santander/MALAGA/index.html" target="_blank" class="btn btn-sm btn-outline-success">
+              ir a la pagina
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+          <div class="quick-link-card">
+            <i class="fas fa-camera"></i>
+            <h5>Galería Turística</h5>
+            <p>Imágenes de lugares</p>
+            <a href="https://www.instagram.com/malaga.santander/?hl=es-la" target="_blank" class="btn btn-sm btn-outline-success">
+              Ver Fotos
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+          <div class="quick-link-card">
+            <i class="fas fa-calendar"></i>
+            <h5>Eventos</h5>
+            <p>Festividades y actividades</p>
+            <a href="https://www.malaga-santander.gov.co/tema/calendario-de-actividades/evento-934709" target="_blank" class="btn btn-sm btn-outline-success">
+              Ver Agenda
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3">
+          <div class="quick-link-card">
+            <i class="fas fa-info-circle"></i>
+            <h5>Información</h5>
+            <p>Datos y contactos</p>
+            <a href="https://www.malaga-santander.gov.co/" target="_blank" class="btn btn-sm btn-outline-success">
+              Sitio Oficial
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Sección de búsqueda -->
   <section class="search-section">
@@ -242,20 +588,31 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Histórico</span>
-            <img src="imagenes/imagen1.jpg" class="card-img-top" alt="Parque Principal">
+            <div class="card-img-top">
+              <img src="imagenes/parque.jpg" class="card-img-top" alt="Parque Principal">
+            </div>
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Parque Principal</h5>
             <p class="card-text flex-grow-1">
               Corazón histórico de Málaga, este hermoso parque central es el punto de encuentro 
               tradicional de la comunidad. Rodeado de casas coloniales y comercios tradicionales, 
-              conserva su encanto arquitectónico original con bancas de piedra y frondosos árboles 
-              que brindan sombra a locales y visitantes.
+              conserva su encanto arquitectónico original.
             </p>
-            <a href="https://www.google.com/maps/search/Parque+Principal+Málaga+Santander+Colombia" 
-               target="_blank" class="maps-btn">
-              <i class="fas fa-map-marker-alt"></i> Ver en Maps
-            </a>
+            <div class="btn-group">
+              <a href="https://www.google.com/maps/search/Parque+Principal+Málaga+Santander+Colombia" 
+                 target="_blank" class="maps-btn">
+                <i class="fas fa-map-marker-alt"></i> Maps
+              </a>
+              <a href="https://www.colombia.travel/es/santander/malaga" 
+                 target="_blank" class="tourism-btn">
+                <i class="fas fa-plane"></i> Turismo
+              </a>
+              <a href="https://www.tripadvisor.com.co/Attractions-g319827-Activities-Santander_Department.html" 
+                 target="_blank" class="info-btn">
+                <i class="fas fa-info"></i> Info
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -265,20 +622,30 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Religioso</span>
-            <img src="imagenes/imagen2.jpg" class="card-img-top" alt="Catedral de Málaga">
+            <div class="card-img-top">
+             <img src="imagenes/catedral.jpg" class="card-img-top" alt="Catedral de Málaga">
+            </div>
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Catedral de Málaga</h5>
             <p class="card-text flex-grow-1">
               Majestuosa construcción religiosa que representa la fe y tradición católica de la región. 
-              Su arquitectura colonial conserva elementos originales del siglo XVIII, con altares 
-              tallados en madera y vitrales que narran la historia religiosa local. Es el centro 
-              espiritual de la comunidad malagueña.
+              Su arquitectura colonial conserva elementos originales del siglo XVIII.
             </p>
-            <a href="https://www.google.com/maps/search/Catedral+Málaga+Santander+Colombia" 
-               target="_blank" class="maps-btn">
-              <i class="fas fa-map-marker-alt"></i> Ver en Maps
-            </a>
+            <div class="btn-group">
+              <a href="https://www.google.com/maps/search/Catedral+Málaga+Santander+Colombia" 
+                 target="_blank" class="maps-btn">
+                <i class="fas fa-map-marker-alt"></i> Maps
+              </a>
+              <a href="https://www.santander.gov.co/index.php/turismo/turismo-religioso" 
+                 target="_blank" class="tourism-btn">
+                <i class="fas fa-plane"></i> Turismo
+              </a>
+              <a href="https://www.tripadvisor.com.co/Attractions-g319827-Activities-c47-t26-Santander_Department.html" 
+                 target="_blank" class="info-btn">
+                <i class="fas fa-info"></i> Info
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -288,20 +655,31 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Turístico</span>
-            <img src="imagenes/imagen3.jpg" class="card-img-top" alt="Mirador Peña del Cabro">
+            <div class="card-img-top">
+              <img src="imagenes/cabro.jpg" class="card-img-top" alt="Mirador Peña del Cabro">
+            </div>
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Mirador Peña del Cabro</h5>
-            <p class="card-text flex-grow-1">
+            
+            
               Espectacular mirador natural que ofrece vistas panorámicas del valle del río Servitá 
-              y las montañas circundantes. Ideal para contemplar atardeceres únicos y apreciar la 
-              geografía montañosa de la región. Un lugar perfecto para la fotografía paisajística 
-              y la conexión con la naturaleza.
+              y las montañas circundantes. Ideal para contemplar atardeceres únicos.
             </p>
-            <a href="https://www.google.com/maps/search/Mirador+Peña+del+Cabro+Málaga+Santander" 
-               target="_blank" class="maps-btn">
-              <i class="fas fa-map-marker-alt"></i> Ver en Maps
-            </a>
+            <div class="btn-group">
+              <a href="https://www.google.com/maps/search/Mirador+Peña+del+Cabro+Málaga+Santander" 
+                 target="_blank" class="maps-btn">
+                <i class="fas fa-map-marker-alt"></i> Maps
+              </a>
+              <a href="https://www.colombia.travel/es/santander/ecoturismo" 
+                 target="_blank" class="tourism-btn">
+                <i class="fas fa-plane"></i> Turismo
+              </a>
+              <a href="https://www.alltrails.com/es/colombia/santander" 
+                 target="_blank" class="info-btn">
+                <i class="fas fa-info"></i> Rutas
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -311,20 +689,29 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Religioso</span>
-            <img src="imagenes/imagen4.jpg" class="card-img-top" alt="Gruta Virgen del Carmen">
+            <img src="imagenes/virgen.jpg" class="card-img-top" alt="Gruta Virgen del Carmen">
+
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Gruta Virgen del Carmen</h5>
             <p class="card-text flex-grow-1">
               Santuario mariano construido en roca natural, dedicado a la Virgen del Carmen, 
-              patrona de los malagueños. Este lugar de peregrinación y oración ofrece un ambiente 
-              de paz y recogimiento espiritual. Durante julio se celebran las fiestas patronales 
-              con procesiones y actividades religiosas tradicionales.
+              patrona de los malagueños. Lugar de peregrinación y oración.
             </p>
-            <a href="https://www.google.com/maps/search/https://www.google.com/maps/place/M%C3%A1laga,+Santander/@6.7037722,-72.7314081,3a,75y,42.98h,93.14t/data=!3m7!1e1!3m5!1s_cj6b-Oto523AmU4lNFNnw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-3.143311653941055%26panoid%3D_cj6b-Oto523AmU4lNFNnw%26yaw%3D42.975990294494466!7i13312!8i6656!4m6!3m5!1s0x8e69aa18a8b7dc07:0x9d6020771b8cf78c!8m2!3d6.7018002!4d-72.7320617!16s%2Fm%2F02qcxsy?entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3DGruta+Virgen+del+Carmen+Málaga+Santander" 
-               target="_blank" class="maps-btn">
-              <i class="fas fa-map-marker-alt"></i> Ver en Maps
-            </a>
+            <div class="btn-group">
+              <a href="https://www.google.com/maps/search/Gruta+Virgen+del+Carmen+Málaga+Santander" 
+                 target="_blank" class="maps-btn">
+                <i class="fas fa-map-marker-alt"></i> Maps
+              </a>
+              <a href="https://www.santander.gov.co/index.php/turismo/turismo-religioso" 
+                 target="_blank" class="tourism-btn">
+                <i class="fas fa-plane"></i> Turismo
+              </a>
+              <a href="https://www.colombia.travel/es/santander/turismo-religioso" 
+                 target="_blank" class="info-btn">
+                <i class="fas fa-info"></i> Info
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -334,40 +721,50 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Educativo</span>
-            <img src="imagenes/imagen5.jpg" class="card-img-top" alt="Colegio Custodio García Rovira">
+            <div class="card-img-top">
+              <img src="imagenes/custodio.jpg" class="card-img-top" alt="Colegio Custodio García Rovira">
+            </div>
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Colegio Custodio García Rovira</h5>
             <p class="card-text flex-grow-1">
               Institución educativa emblemática nombrada en honor al prócer de la independencia 
-              Custodio García Rovira. Con más de 50 años formando generaciones de malagueños, 
-              es reconocida por su excelencia académica y compromiso con la educación integral. 
-              Sus instalaciones modernas contrastan con la tradición educativa centenaria.
+              Custodio García Rovira. Con más de 50 años formando generaciones de malagueños.
             </p>
-            <a href="https://www.google.com/maps/search/Colegio+Custodio+García+Rovira+Málaga+Santander" 
-               target="_blank" class="maps-btn">
-              <i class="fas fa-map-marker-alt"></i> Ver en Maps
-            </a>
+            <div class="btn-group">
+              <a href="https://www.google.com/maps/search/Colegio+Custodio+García+Rovira+Málaga+Santander" 
+                 target="_blank" class="maps-btn">
+                <i class="fas fa-map-marker-alt"></i> Maps
+              </a>
+              <a href="https://www.mineducacion.gov.co/1621/w3-channel.html" 
+                 target="_blank" class="tourism-btn">
+                <i class="fas fa-graduation-cap"></i> Educación
+              </a>
+              <a href="https://www.malaga-santander.gov.co/" 
+                 target="_blank" class="info-btn">
+                <i class="fas fa-info"></i> Info
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Colegio Nuestra Señora del Rosario -->
-      <div class="col place-card" data-category="educativo religioso">
+    <!-- Tequia -->
+      <div class="col place-card" data-category="turistico">
         <div class="card h-100">
           <div class="position-relative">
-            <span class="category-badge">Educativo</span>
-            <img src="imagenes/imagen6.jpg" class="card-img-top" alt="Colegio Nuestra Señora del Rosario">
+            <span class="category-badge">Turístico</span>
+            <img src="imagenes/tequia.jpg" class="card-img-top" alt="Tequia">
           </div>
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Colegio Nuestra Señora del Rosario</h5>
+            <h5 class="card-title">Tequia</h5>
             <p class="card-text flex-grow-1">
-              Institución educativa de tradición católica que combina formación académica con 
-              valores cristianos. Fundada por comunidades religiosas, ha sido pilar fundamental 
-              en la educación femenina de la región. Sus graduadas han contribuido significativamente 
-              al desarrollo social y cultural de Málaga.
+              Parque ecológico natural ubicado en las afueras de Málaga, ideal para el ecoturismo 
+              y la recreación familiar. Ofrece senderos naturales, áreas de picnic y espacios para 
+              deportes al aire libre. Su biodiversidad incluye especies nativas de flora y fauna 
+              del bosque seco tropical.
             </p>
-            <a href="https://www.google.com/maps/search/Colegio+Nuestra+Señora+del+Rosario+Málaga+Santander" 
+            <a href="https://www.google.com/maps/search/Tequia+Málaga+Santander" 
                target="_blank" class="maps-btn">
               <i class="fas fa-map-marker-alt"></i> Ver en Maps
             </a>
@@ -380,7 +777,7 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Educativo</span>
-            <img src="imagenes/imagen7.jpg" class="card-img-top" alt="Instituto Técnico Industrial">
+            <img src="imagenes/industrial.jpg" class="card-img-top" alt="Instituto Técnico Industrial">
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Instituto Técnico Industrial</h5>
@@ -403,7 +800,7 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Educativo</span>
-            <img src="imagenes/imagen8.jpg" class="card-img-top" alt="Colegio Politécnico">
+            <img src="imagenes/politecnico.jpg" class="card-img-top" alt="Colegio Politécnico">
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Colegio Politécnico</h5>
@@ -426,7 +823,7 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Educativo</span>
-            <img src="imagenes/imagen9..jpg" class="card-img-top" alt="Colegio Normal Superior">
+            <img src="imagenes/normal.jpg" class="card-img-top" alt="Colegio Normal Superior">
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Colegio Normal Superior</h5>
@@ -444,35 +841,12 @@
         </div>
       </div>
 
-      <!-- Tequia -->
-      <div class="col place-card" data-category="turistico">
-        <div class="card h-100">
-          <div class="position-relative">
-            <span class="category-badge">Turístico</span>
-            <img src="imagenes/imagen10.jpg" class="card-img-top" alt="Tequia">
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Tequia</h5>
-            <p class="card-text flex-grow-1">
-              Parque ecológico natural ubicado en las afueras de Málaga, ideal para el ecoturismo 
-              y la recreación familiar. Ofrece senderos naturales, áreas de picnic y espacios para 
-              deportes al aire libre. Su biodiversidad incluye especies nativas de flora y fauna 
-              del bosque seco tropical.
-            </p>
-            <a href="https://www.google.com/maps/search/Tequia+Málaga+Santander" 
-               target="_blank" class="maps-btn">
-              <i class="fas fa-map-marker-alt"></i> Ver en Maps
-            </a>
-          </div>
-        </div>
-      </div>
-
       <!-- Alcaldía -->
       <div class="col place-card" data-category="institucional">
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Institucional</span>
-            <img src="imagenes/imagen11.jpg" class="card-img-top" alt="Alcaldía de Málaga">
+            <img src="imagenes/alcaldia.jpg" class="card-img-top" alt="Alcaldía de Málaga">
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Alcaldía Municipal</h5>
@@ -495,7 +869,7 @@
         <div class="card h-100">
           <div class="position-relative">
             <span class="category-badge">Institucional</span>
-            <img src="imagenes/imagen12.jpg" class="card-img-top" alt="Asilo San Antonio">
+            <img src="imagenes/asilo.jpg" class="card-img-top" alt="Asilo San Antonio">
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Asilo San Antonio</h5>
@@ -514,8 +888,7 @@
       </div>
 
     </div>
-    
-    <!-- Mensaje sin resultados -->
+     <!-- Mensaje sin resultados -->
     <div id="noResults" class="no-results d-none">
       <i class="fas fa-search fa-3x mb-3"></i>
       <p>No se encontraron lugares que coincidan con tu búsqueda</p>
@@ -528,6 +901,8 @@
       <p><i class="fas fa-heart text-warning"></i> © 2025 Málaga, Santander - Colombia</p>
       <p class="small">Descubre la belleza del nororiente colombiano</p>
       <p class="small">realizado por: MARIA NYLLERETH SANBARIA JIMENEZ</p>
+      <p class="small">contacto 3104852208 </p>
+      <p class="small">correo: nyllerethj@gmail.com </p>
     </div>
   </footer>
 
@@ -609,6 +984,9 @@
         }, index * 100);
       });
     });
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
